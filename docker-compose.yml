@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: skilltree-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - backend_data:/app/data
+    environment:
+      - DATABASE_URL=sqlite:///./data/skilltree.db
+    restart: always
+
+  frontend:
+    build: ./frontend
+    container_name: skilltree-frontend
+    ports:
+      - "5173:80" # Mapping port 80 inside to 5173 outside for consistency with dev URL habits
+    depends_on:
+      - backend
+    restart: always
+
+volumes:
+  backend_data:
