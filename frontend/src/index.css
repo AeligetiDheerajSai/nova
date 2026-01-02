@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+@media print {
+  @page {
+    margin: 0;
+    size: landscape;
+  }
+
+  body {
+    background: white;
+  }
+}
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --color-primary: #3b82f6;
+  --color-secondary: #10b981;
+  --color-accent: #8b5cf6;
+  --color-dark: #1e293b;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+canvas {
+  touch-action: none;
+}
